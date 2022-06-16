@@ -1,0 +1,107 @@
+Java:
+package:
+com.virtusa
+
+com
+   virtusa
+         Main.java
+
+
+dev-1-additon
+
+dev-2subraction
+
+static method:Class Name call
+
+instance method:Object Call
+
+com.wipro
+   Main.java
+
+com.wipro.addition
+   Addition.java
+ 
+com.wipro.subraction
+   Addition.java
+
+com.wipro.multiplication
+   Addition.java
+
+com.wipro.Division
+   Addition.java
+
+
+com.wipro--->base package
+
+base package
+   variable
+        Variable.java
+	       2 variable declare
+		  1.static variable
+		  2.instance variable
+
+base 
+   method
+     Method.java
+      2 methods
+         1.static method-->print 2 varibles
+	 2.instance metho-->print 2 variables
+
+Task1:
+uname="vivek"
+password="cake"
+base
+  validate
+     Validate.java
+         static string valid(string uname,string password)
+	  logic: no need to return value
+	  uname.equals("vivek") && 
+	  output: success
+	  op:fail
+
+Task2:
+base
+  employee
+     Employee.java
+       eid, ename, esal, ecomp takes from end user
+       void calcuate and return to main
+        esal>10000 or company=wipro ==>success
+       else===>fail
+
+
+Ex
+package com.virtusa;
+import com.virtusa.addition.*;
+import com.virtusa.subraction.*;
+
+public class Main 
+{
+    int a=100;
+    static int b=120;
+    public static void main(String[] args)
+    {
+        Main m=new Main();
+        System.out.println(m.a);//100
+        System.out.println(m.b);//120
+
+        Main m1=new Main();
+        m.a=11;
+        m.b=22;
+        m1.b=444;
+
+        System.out.println(m1.a);//100
+        System.out.println(m1.b);//444
+
+        
+        Main m2=new Main();
+        System.out.println(m2.b);//444
+
+        
+        System.out.println(m.a);//11
+        System.out.println(m.b);//444
+
+        
+    }
+}
+
+
