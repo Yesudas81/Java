@@ -1,0 +1,35 @@
+Modifiers:
+1.public:Any where
+2.protected:within package+child class
+3.<default>:within package
+4.private:within class
+
+public>protected>default>private
+
+Task1:
+uname="vivek"
+password="cake"
+base
+   var
+    variable declaration
+base
+  validate
+     Validate.java
+         static string valid()
+	   access required variables
+	  logic: must return value to main
+
+	  output: success
+	  op:fail
+
+Task2:
+base
+   var
+    variable declaration
+      eid, ename, esal, ecomp
+base
+  employee
+     Employee.java
+       method calcuate and return to main
+        esal>10000 or company=wipro ==>success
+       else===>fail
