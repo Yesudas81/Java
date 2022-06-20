@@ -1,0 +1,15 @@
+base package
+  com.wipro
+      Main.java:calling add(),sub(),mul(),div() and store return value and print
+  com.wipro.variables
+      Variable.java
+      declare:a,b private variables
+  com.wipro.arithmethic
+      Arithmetic.java(I):
+      add(),sub(),mul(),div()
+      ArithmeticImpl.java implements Arithmetic 
+      add(),sub(),mul(),div(): implementation
+
+
+
+  
