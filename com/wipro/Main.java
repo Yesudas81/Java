@@ -15,6 +15,7 @@ public class Main {
         int d=Div.div(2,3);
         System.out.println(s+" "+r+" "+i+" "+d);
         System.out.println("hi");
+        System.out.println("hello");
         
 
 
