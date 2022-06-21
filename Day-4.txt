@@ -1,0 +1,173 @@
+conversion of local to instance:
+using this keyword we can convert to instance
+
+class Test
+{
+    int a=100;
+    int b=200;
+    public void m1(int a,int b)
+    {
+        System.out.println(a);//100
+        System.out.println(b);//200
+        System.out.println(this.a);//200
+        System.out.println(this.b);//200
+
+    }
+    
+}
+public class Main {
+    public static void main(String[] args) {
+        Test t=new Test();
+        t.m1(10,20);
+    }
+}
+
+
+class Test
+{
+    int a;//0
+    int b;//0
+    public void m1(int a,int b)
+    {
+        this.a=a;
+        this.b=b;
+    }
+    public void print()
+    {
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Test t=new Test();
+        t.m1(10,20);
+        t.print();
+    }
+}
+
+Note: should not use this keyword in static block otherwise it raises error
+
+this vs this():
+===============
+this is keyword it refers current class object
+this() is a current class constructor it refers other constructor
+
+Constructor:
+Rule:
+==>if we define paraeterized constructor default constructor should not be created, we must define explictly
+==>inside  default constructor or parameterized constructor super() is invoked
+==>inside constructor first line must be super() or this()
+==>if we explictly write this(), super() is not created.
+
+1.default constructor: whenever object is created default constructor created with empty implementation
+2.parameterized constructor:whenever object is created with parameters 
+
+class Test
+{
+    Test(int a)
+    {
+        System.out.println("Test constructor "+a);
+    }
+}
+public class Main extends Test {
+    
+    public Main()
+    {
+        super(10);
+    }
+    public Main(String str)
+    {
+        super(20);
+        System.out.println(str);
+    }
+    public static void main(String[] args) {
+        Main m=new Main(); 
+        Main m1=new Main("Hello");        
+    }
+}
+//output: 
+//Test constructor 10
+//Test constructor 20
+//Hello
+
+class Test
+{
+    Test()
+    {
+        
+    }
+    Test(int a)
+    {
+        System.out.println("Test constructor "+a);
+    }
+}
+public class Main extends Test {
+    
+    public Main()
+    {
+        super();
+    }
+    public Main(String str)
+    {
+        super();
+        System.out.println(str);
+    }
+    public static void main(String[] args) {
+        Main m=new Main(); 
+        Main m1=new Main("Hello");        
+    }
+}
+
+super vs super():
+=================
+super: super keyword used to refer parent class variables
+super(): parent class default constructor
+class Test
+{
+    int a=1000;
+}
+public class Main extends Test {
+    
+    int a=100;
+    public void m1(int a)
+    {
+        System.out.println(a);//10
+        System.out.println(this.a);//100
+        System.out.println(super.a);//1000
+    }
+    public static void main(String[] args) {
+        Main m=new Main();//default calling  
+        m.m1(10);     
+    }
+}
+//output: 
+// 10
+// 100
+// 100
+
+
+Task:
+base package:
+   com.wipro
+       Main.java
+
+   com.wipro.variable
+       Variable.java
+          declare required variables:
+	  uname,passwd,eid,ename,esal,ecomp;
+
+   com.wipro.Employee
+        IEmployee.java(I)
+	  declare methods:
+	    valid()  
+	    calc()    
+
+    com.wipro.Employee
+         EmployeeImpl.java implements IEmployee
+	    implement methods
+	      uname &password
+	      return to main:success or fail
+
+	      esal>1000 and comp=tcs
+	      return to main: success or fail
