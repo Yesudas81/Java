@@ -1,0 +1,136 @@
+default constructor vs zero argument constructor:
+default constructor:It is created by compiler, if we create object
+argument constructor:Explictly created by developers
+
+package Demo.com.virtusa;
+
+public class Main {
+    int a;
+    double d;
+    String s;
+    public Main(int a,double d,String s)
+    {
+        this.a=a;
+        this.d=d;
+        this.s=s;
+    }
+    public void m1()
+    {
+        System.out.println(a);
+        System.out.println(d);
+        System.out.println(s);
+    }
+    public static void main(String[] args) {
+        Main m=new Main(10,10.0,"vivek");   
+        m.m1(); 
+    }
+}
+
+op:
+10
+10.0
+vivek
+
+constructor chaining/construtor overloading:one constructor able to another constructor using thi()
+
+Inheritance:
+1.single-->one parent, one child
+2.multiple-->one child, more than one parent
+3.Hybrid---->more than one child,more than one parent
+4.Hierarchical--->more than one child,one parent
+5.multi-level---->one grand parent-->parent---child(level by level)
+
+Association:
+providing services to another class
+Aggregation/compostion:
+Aggregation:class Staff can exist without the presence of Class PVP,it is a weak type
+Compostion:it is a strong type of aggregation
+
+Aggregation:
+package Demo.com.virtusa;
+class Address//dependent
+{
+    int dno;
+    String city;
+    String state;
+    public Address(int dno, String city, String state) {
+        this.dno = dno;
+        this.city = city;
+        this.state = state;
+    }
+}
+class Heroine//independent class
+{
+    String name;
+    int age;
+    Address addr;
+    public Heroine(String name, int age, Address addr) {
+        this.name = name;
+        this.age = age;
+        this.addr = addr;
+    }
+
+    public String toString()
+    {
+        return "name= "+name+",age= "+age+",Address = "+addr.dno+" "+addr.city+" "+addr.state;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Address a =new Address(45, "Vijayawada", "AP");
+        Heroine h=new Heroine("samantha", 35, a);  
+        System.out.println(h);
+    }
+}
+op:
+name= samantha,age= 35,Address = 45 Vijayawada AP
+
+package Demo.com.virtusa;
+class Marks//dependent
+{
+    int m1,m2,m3;
+    public Marks(int m1, int m2, int m3) {
+        this.m1 = m1;
+        this.m2 = m2;
+        this.m3 = m3;
+    }
+    // public String toString()
+    // {
+    //     return "Marks: "+m1+" "+m2+" "+m3;
+    // }
+    @Override
+    public String toString() {
+        return "Marks [m1=" + m1 + ", m2=" + m2 + ", m3=" + m3 + "]";
+    }
+}
+class Student//independent class
+{
+    int sid;
+    String name;
+    Marks m;
+    public Student(int sid, String name, Marks m) {
+        this.sid = sid;
+        this.name = name;
+        this.m = m;
+    }
+    // public String toString()
+    // {
+    //     return "sid: "+sid+",sname: "+name+"Student Marks: "+m.m1+" "+m.m2+" "+m.m3;
+    // }
+    @Override
+    public String toString() {
+        return "Student [m=" + m + ", name=" + name + ", sid=" + sid + "]";
+    }
+    
+}
+public class Main {
+    public static void main(String[] args) {
+        Marks m=new Marks(82, 75, 93);
+        Student s=new Student(25, "ajay", m);
+        System.out.println(m);//
+        System.out.println(s);//
+    }
+}
+op:
+Marks [m1=82, m2=75, m3=93]
+Student [m=Marks [m1=82, m2=75, m3=93], name=ajay, sid=25]
