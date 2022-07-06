@@ -1,0 +1,253 @@
+size:5
+10
+25
+30
+42
+53
+sum=
+
+Emp e1=new Emp(1,"sampath",55000.0);
+        Emp e2=new Emp(2,"surya",30000.0);
+        Emp e3=new Emp(3,"rooppa",25000.0);
+
+        ArrayList<Emp> al=new ArrayList<>();
+        al.add(e1);
+        al.add(e2);
+        al.add(e3);
+
+        for(Emp e:al)
+        {
+            System.out.println(e.getEid()+" "+e.getEname()+" "+e.getEsal());
+        }
+
+        System.out.println(al);
+
+
+	comparable:natural sorting order
+	int compareTo(Emp e)
+	Intergers,double
+	esal>e.esal
+	String
+	ename.compareTo(e.ename)
+	xyz.compareTo(xyz)//a=97 x=110 -13
+	comparator:customized sorrting order
+	int compare(Emp e1,Emp e2)
+	int,float
+	e1.esal>e2.esal
+	String
+	e1.ename.compareTo(e2.ename)
+
+
+
+	Ex:comparator:
+	package com.virtusa;
+
+import java.util.Comparator;
+
+public class Emp implements Comparator<Emp>{
+    private int eid;
+    private String ename;
+    private double esal;
+
+    public Emp(int eid, String ename, double esal) {
+        this.eid = eid;
+        this.ename = ename;
+        this.esal = esal;
+    }
+
+    public Emp() {
+    }
+
+    public int getEid() {
+        return eid;
+    }
+
+
+    public void setEid(int eid) {
+        this.eid = eid;
+    }
+
+
+    public String getEname() {
+        return ename;
+    }
+
+
+    public void setEname(String ename) {
+        this.ename = ename;
+    }
+
+
+    public double getEsal() {
+        return esal;
+    }
+
+
+    public void setEsal(double esal) {
+        this.esal = esal;
+    }
+
+
+    // @Override
+    // public String toString() {
+    //     return "Emp [eid=" + eid + ", ename=" + ename + ", esal=" + esal + "]";
+    // }
+
+    // /* (non-Javadoc)
+    //  * @see java.lang.Comparable#compareTo(java.lang.Object)
+    //  */
+    // // @Override
+    // // public int compareTo(Emp e) {
+    // //         return ename.compareTo(e.ename);
+    // // }
+
+    
+    public int compare(Emp e1, Emp e2) {
+        return e2.ename.compareTo(e1.ename);
+    }
+    
+}
+
+Main class:
+package com.virtusa;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.TreeSet;
+
+import javax.naming.ldap.SortControl;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Emp e1=new Emp(1,"sampath",55000.0);
+        Emp e2=new Emp(2,"surya",30000.0);
+        Emp e3=new Emp(3,"rooppa",25000.0);
+        Emp e4=new Emp(4,"ajay",45000.0);
+        Emp e5=new Emp(5,"ravi",35000.0);
+
+        ArrayList<Emp> al=new ArrayList<>();
+        al.add(e1);
+        al.add(e2);
+        al.add(e3);
+        al.add(e4);
+        al.add(e5);
+        Collections.sort(al);
+
+        for(Emp e:al)
+        {
+            System.out.println(e.getEid()+" "+e.getEname()+" "+e.getEsal());
+        }
+        
+    }
+}
+/*
+ * al1=10 11 10 13 14 13
+ * al2=20 14 25 26 12 10
+ * 10 11 12 13 14 20 25 26
+ * Hint: removeAll or retainAll or conatains
+ */
+
+
+Ex:comparable
+package com.virtusa;
+
+import java.util.Comparator;
+
+public class Emp implements Comparable<Emp>{
+    private int eid;
+    private String ename;
+    private double esal;
+
+    public Emp(int eid, String ename, double esal) {
+        this.eid = eid;
+        this.ename = ename;
+        this.esal = esal;
+    }
+
+    public Emp() {
+    }
+
+    public int getEid() {
+        return eid;
+    }
+
+
+    public void setEid(int eid) {
+        this.eid = eid;
+    }
+
+
+    public String getEname() {
+        return ename;
+    }
+
+
+    public void setEname(String ename) {
+        this.ename = ename;
+    }
+
+
+    public double getEsal() {
+        return esal;
+    }
+
+
+    public void setEsal(double esal) {
+        this.esal = esal;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Emp [eid=" + eid + ", ename=" + ename + ", esal=" + esal + "]";
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Comparable#compareTo(java.lang.Object)
+     */
+    @Override
+    public int compareTo(Emp e) {
+            return ename.compareTo(e.ename);
+    }
+
+    
+    // public int compare(Emp e1, Emp e2) {
+    //     return e2.ename.compareTo(e1.ename);
+    // }
+    
+}
+
+
+
+ename in descending order using comparable & comparator
+
+comparable:
+int compareTo(Emp e1)
+{
+	return e1.ename.compareTo(ename);
+}
+comparator:
+int compare(Emp e1,Emp e2)
+{
+   return e2.ename.compareTo(e1.ename);
+}
+esal in descending order using comparable & comparator
+int compareTo(Emp e1)
+{
+	return e1.sal>sal;
+}
+
+int compare(Emp e1,Emp e2)
+{
+   return e2.sal>(e1.ename);
+}
+
+Task:
+Student class
+sname spercentage saddress
+1.print sname in ascending order(comparable or comparator)
+2.print student percentage in descending order using comparable
+3.print student address in descending order using comparator
